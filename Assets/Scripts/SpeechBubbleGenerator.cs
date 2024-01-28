@@ -6,7 +6,7 @@ using TMPro;
 
 public class SpeechBubbleGenerator : MonoBehaviour
 {
-    //public GameObject speechBubblePrefab;
+    public GameObject speechBubblePrefab;
     public TextMeshProUGUI textComponent;
     public Canvas textCanvas;
     public RawImage imageContainer;
@@ -45,12 +45,12 @@ public class SpeechBubbleGenerator : MonoBehaviour
         // Add more sentences as needed
     };
 
-    void Start()
+    public void GenerateBubble()
     {
-        if (textComponent == null)
-        {
-            Debug.LogError("Text Component is not assigned.");
-        }
+        //if (textComponent == null)
+        //{
+        //    Debug.LogError("Text Component is not assigned.");
+        //}
 
         // Randomly choose a sentence from the list
         string randomSentence = GetRandomSentence();
@@ -61,7 +61,7 @@ public class SpeechBubbleGenerator : MonoBehaviour
 
     string GetRandomSentence()
     {
-        if (sentences.Length > 0)
+        if (sentences.Length >= 0)
         {
             return sentences[Random.Range(0, sentences.Length)];
         }
@@ -95,17 +95,16 @@ public class SpeechBubbleGenerator : MonoBehaviour
     //    }
     //}
 
-    //void GenerateSpeechBubble()
-    //{
-    //    Vector3 randomPosition = transform.position;
-    //    GameObject speechBubble = Instantiate(speechBubblePrefab, randomPosition, Quaternion.identity);
+    public void GenerateSpeechBubble(Vector3 position)
+    {
+        GameObject speechBubble = Instantiate(speechBubblePrefab, position, Quaternion.identity);
 
-    //    // Attach a script to the instantiated speech bubble to set the sentence
-    //    SpeechBubbleScript speechBubbleScript = speechBubble.GetComponent<SpeechBubbleScript>();
-    //    if (speechBubbleScript != null && sentences.Length > 0)
-    //    {
-    //        string randomSentence = sentences[UnityEngine.Random.Range(0, sentences.Length)];
-    //        speechBubbleScript.SetSentence(randomSentence);
-    //    }
-    //}
+        // Attach a script to the instantiated speech bubble to set the sentence
+        SpeechBubbleScript speechBubbleScript = speechBubble.GetComponent<SpeechBubbleScript>();
+        if (speechBubbleScript != null && sentences.Length > 0)
+        {
+            string randomSentence = sentences[UnityEngine.Random.Range(0, sentences.Length)];
+            speechBubbleScript.SetSentence(randomSentence);
+        }
+    }
 }
