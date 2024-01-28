@@ -60,7 +60,7 @@ public class DragBlock : MonoBehaviour
         dragging = false;
         transform.parent = null;
         enabled = false;
-        Vector3 lockedPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+        Vector3 lockedPosition = new Vector3(transform.position.x, transform.position.y, -0.5f);
         transform.position = lockedPosition;
         rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
         spawnManagerScript.SpawnBlock();
