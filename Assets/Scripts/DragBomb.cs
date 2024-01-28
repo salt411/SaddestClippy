@@ -33,7 +33,7 @@ public class DragBomb : MonoBehaviour
     {
         Renderer renderer = GetComponent<Renderer>();
         originalColor = renderer.material.color;
-        mouseDownColor = Color.Lerp(originalColor, Color.white, 0.3f);
+        mouseDownColor = Color.Lerp(originalColor, Color.white, -0.8f);
         worldPos = transform.position;
         rb = GetComponent<Rigidbody>();
         rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;

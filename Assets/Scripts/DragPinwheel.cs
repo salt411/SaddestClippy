@@ -55,7 +55,7 @@ public class DragPinwheel : MonoBehaviour
         dragging = false;
         transform.parent = null;
         enabled = false;
-        Vector3 lockedPosition = new Vector3(transform.position.x, transform.position.y, 0f);
+        Vector3 lockedPosition = new Vector3(transform.position.x, transform.position.y, -1f);
         transform.position = lockedPosition;
         rb.constraints = RigidbodyConstraints.FreezePosition;
         PassRespawnInfo();
