@@ -7,10 +7,12 @@ public class SpawnManager : MonoBehaviour
     public GameObject block;
     public GameObject pinwheel;
     public GameObject bomb;
+    public GameObject clippy;
 
-    void Start()
+ 
+    public void SpawnClippy()
     {
-        
+        Instantiate(clippy);
     }
 
     public void SpawnObstacles()
@@ -34,8 +36,5 @@ public class SpawnManager : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

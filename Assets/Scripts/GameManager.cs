@@ -41,7 +41,7 @@ public class GameManager : MonoBehaviour
 
     void StartLevel()
     {
-        Instantiate(clippy, clippySpawnPos, Quaternion.identity);
+        spawnManagerScript.SpawnClippy();
         timerScript.StartTimer();
         mainMenu.SetActive(false);
         level.SetActive(true);
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
         clippyWinScript.hasWon = false;
         level.SetActive(true);
         lossScreen.SetActive(false);
+        spawnManagerScript.SpawnObstacles();
     }
 
     // Update is called once per frame
