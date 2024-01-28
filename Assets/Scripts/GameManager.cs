@@ -44,7 +44,8 @@ public class GameManager : MonoBehaviour
 
     void StartGame()
     {
-        spawnManagerScript.SpawnClippy();
+        spawnManagerScript.SpawnSpecialClippy(currLevel);
+        //SpawnClippyForLevel(currLevel);
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
         playerRigidbody = playerObject.GetComponent<Rigidbody>();
         timerScript.StartTimer(currLevel);
@@ -59,11 +60,8 @@ public class GameManager : MonoBehaviour
         clippyWinScript.hasWon = false;
         lossScreen.SetActive(false);
         StartGame();
-        
-
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (clippyWinScript.hasWon) // if Clippy succeeds
@@ -102,14 +100,12 @@ public class GameManager : MonoBehaviour
     }
     void NextLevel()
     {
-        //levelObjects[currLevel-1].SetActive(false);
-        //levelObjects[currLevel].SetActive(true);
-        //levelUI[currLevel].SetActive(true);
         levelUI[currLevel-1].SetActive(false);
         currLevel++;
         timerScript.levelWin = false;
         StartGame();
     }
 
-   
+    
+
 }

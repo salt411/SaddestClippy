@@ -18,7 +18,7 @@ public class Timer : MonoBehaviour
     void Start()
     {
         gameManagerScript = gameManager.GetComponent < GameManager > ();
-        maxTimePerLevel = new List<float> { 10f, 20.0f, 40.0f, 30.0f };
+        maxTimePerLevel = new List<float> { 3f, 20.0f, 40.0f, 30.0f };
     }
 
     public float GetLevelTime(int levelNum)
