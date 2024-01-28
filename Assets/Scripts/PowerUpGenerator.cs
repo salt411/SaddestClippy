@@ -11,7 +11,7 @@ public class PowerUpGenerator : MonoBehaviour
     public float minRotationSpeed = 30f;
     public float maxRotationSpeed = 180f;
     public float minMomentum = 5f;
-    public float maxMomentum = 10f;
+    public float maxMomentum = 9f;
 
     void Start()
     {
