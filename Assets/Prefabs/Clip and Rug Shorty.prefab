@@ -351,8 +351,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   delayAfterCollision: 0.5
-  force: 40
-  horizontalForceWhileJumping: 15
+  force: 30
+  horizontalForceWhileJumping: 10
   jumpForce: 15
   reboundForce: 20
 --- !u!54 &783550584931445357
