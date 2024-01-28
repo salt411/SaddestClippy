@@ -2948,7 +2948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ac4c5aa9b67463a8c0e7fc52739dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefab: {fileID: 0}
+  powerUpPrefab: {fileID: 3401185102854271749, guid: 7453936345ff448cc936e5caf896616a, type: 3}
   speechBubblePrefab: {fileID: 0}
   numberOfPowerUps: 5
   sentences:
