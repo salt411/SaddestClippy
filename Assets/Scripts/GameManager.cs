@@ -18,6 +18,9 @@ public class GameManager : MonoBehaviour
     public Button startButton;
     private ClippyWin clippyWinScript;
     private Timer timerScript;
+    private int pastLevel;
+    private int levelCount;
+    private int currLevel;
     GameObject[] platformList;
     void Awake()
     {
@@ -28,9 +31,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+        levelCount = 1;
         lossScreen.SetActive(false);
         level.SetActive(false);
-        startButton.onClick.AddListener(StartLevel);
+        startButton.onClick.AddListener(StartGame);
         restartButton.onClick.AddListener(RestartLevel);
 
     }
@@ -38,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     Vector3 clippySpawnPos = new Vector3(-9f, 4f, 0f);
 
-    void StartLevel()
+    void StartGame()
     {
         spawnManagerScript.SpawnClippy();
         timerScript.StartTimer();
@@ -84,5 +88,13 @@ public class GameManager : MonoBehaviour
             }
 
         }
+    }
+    void NextLevel()
+    {
+        pastLevel = currLevel;
+        currLevel++;
+        GameObject.Find("Level " + pastLevel).SetActive(false);
+        GameObject.Find("Level " + currLevel).SetActive(true);
+        spawnManagerScript.SpawnClippy();
     }
 }
