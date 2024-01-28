@@ -44,6 +44,7 @@ public class GameManager : MonoBehaviour
 
     void StartGame()
     {
+
         spawnManagerScript.SpawnSpecialClippy(currLevel);
         //SpawnClippyForLevel(currLevel);
         GameObject playerObject = GameObject.FindGameObjectWithTag("Player");
@@ -52,7 +53,7 @@ public class GameManager : MonoBehaviour
         mainMenu.SetActive(false);
         levelObjects[currLevel-1].SetActive(true);
         levelUI[currLevel-1].SetActive(true);
-        spawnManagerScript.SpawnObstacles();
+        
     }
 
     void RestartLevel()
@@ -90,8 +91,7 @@ public class GameManager : MonoBehaviour
             Vector3 newVelocity = playerRigidbody.velocity;
             newVelocity.x = 0;
             playerRigidbody.velocity = newVelocity;
-            Debug.Log(playerRigidbody.position.y);
-            if (playerRigidbody.position.y < -2.5f)
+            if (playerRigidbody.position.y < -10.5f)
             {
                 NextLevel();
             }
@@ -103,6 +103,7 @@ public class GameManager : MonoBehaviour
         levelUI[currLevel-1].SetActive(false);
         currLevel++;
         timerScript.levelWin = false;
+        spawnManagerScript.SpawnObstacles();
         StartGame();
     }
 

@@ -14,11 +14,12 @@ public class Timer : MonoBehaviour
     private float maxTimeThisLevel;
     public GameObject gameManager;
     private GameManager gameManagerScript;
+    public CharController charController;
 
     void Start()
     {
         gameManagerScript = gameManager.GetComponent < GameManager > ();
-        maxTimePerLevel = new List<float> { 3f, 20.0f, 40.0f, 30.0f };
+        maxTimePerLevel = new List<float> { 4f, 20.0f, 40.0f, 30.0f };
     }
 
     public float GetLevelTime(int levelNum)
@@ -28,6 +29,7 @@ public class Timer : MonoBehaviour
 
     public void StartTimer(int levelNum)
     {
+        charController = GameObject.FindGameObjectWithTag("Player").GetComponent<CharController>();
         maxTimeThisLevel = maxTimePerLevel[levelNum - 1];
         countdownCoroutine = StartCoroutine(Countdown());
     }
@@ -40,8 +42,9 @@ public class Timer : MonoBehaviour
             maxTimeThisLevel -= 1;
             GetComponent<TextMeshProUGUI>().text = maxTimeThisLevel.ToString();
         }
-
+        //charController.StartCoroutine(CheckTheTime());
         levelWin = true;
+        
         
     }
 
