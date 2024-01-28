@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
 public class SpeechBubbleGenerator : MonoBehaviour
 {
-    public GameObject speechBubblePrefab;
+    //public GameObject speechBubblePrefab;
+    public TextMeshProUGUI textComponent;
+    public Canvas textCanvas;
+    public RawImage imageContainer;
+
     public string[] sentences = {
         "I thought I could database, but she wouldn't let me Access her heart.",
         "Clippy this, Clippy that, why don't you ever watch the clip I sent you on Windows Media Player?",
@@ -39,26 +45,67 @@ public class SpeechBubbleGenerator : MonoBehaviour
         // Add more sentences as needed
     };
 
-    void OnTriggerEnter(Collider other)
+    void Start()
     {
-        if (other.CompareTag("Player"))
+        if (textComponent == null)
         {
-            GenerateSpeechBubble();
-            Destroy(gameObject);
+            Debug.LogError("Text Component is not assigned.");
+        }
+
+        // Randomly choose a sentence from the list
+        string randomSentence = GetRandomSentence();
+
+        // Set the text content of the TMPro Text Component
+        textComponent.text = randomSentence;
+    }
+
+    string GetRandomSentence()
+    {
+        if (sentences.Length > 0)
+        {
+            return sentences[Random.Range(0, sentences.Length)];
+        }
+        else
+        {
+            return "No sentences available.";
         }
     }
 
-    void GenerateSpeechBubble()
+    void FitTextInSpeechBubble(TextMeshProUGUI textComponent)
     {
-        Vector3 randomPosition = transform.position;
-        GameObject speechBubble = Instantiate(speechBubblePrefab, randomPosition, Quaternion.identity);
+        RectTransform rectTransform = textComponent.GetComponent<RectTransform>();
+        float maxWidth = imageContainer.rectTransform.rect.width;
 
-        // Attach a script to the instantiated speech bubble to set the sentence
-        SpeechBubbleScript speechBubbleScript = speechBubble.GetComponent<SpeechBubbleScript>();
-        if (speechBubbleScript != null && sentences.Length > 0)
+        // You may need to adjust this factor based on your specific requirements
+        float fontSizeFactor = 0.9f;
+
+        // Reduce font size until it fits within the maxWidth
+        while (rectTransform.rect.width > maxWidth)
         {
-            string randomSentence = sentences[UnityEngine.Random.Range(0, sentences.Length)];
-            speechBubbleScript.SetSentence(randomSentence);
+            textComponent.fontSize = Mathf.FloorToInt(textComponent.fontSize * fontSizeFactor);
         }
     }
+
+    //void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Player"))
+    //    {
+    //        GenerateSpeechBubble();
+    //        Destroy(gameObject);
+    //    }
+    //}
+
+    //void GenerateSpeechBubble()
+    //{
+    //    Vector3 randomPosition = transform.position;
+    //    GameObject speechBubble = Instantiate(speechBubblePrefab, randomPosition, Quaternion.identity);
+
+    //    // Attach a script to the instantiated speech bubble to set the sentence
+    //    SpeechBubbleScript speechBubbleScript = speechBubble.GetComponent<SpeechBubbleScript>();
+    //    if (speechBubbleScript != null && sentences.Length > 0)
+    //    {
+    //        string randomSentence = sentences[UnityEngine.Random.Range(0, sentences.Length)];
+    //        speechBubbleScript.SetSentence(randomSentence);
+    //    }
+    //}
 }
