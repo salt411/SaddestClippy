@@ -47,11 +47,6 @@ public class SpeechBubbleGenerator : MonoBehaviour
 
     public void GenerateBubble()
     {
-        //if (textComponent == null)
-        //{
-        //    Debug.LogError("Text Component is not assigned.");
-        //}
-
         // Randomly choose a sentence from the list
         string randomSentence = GetRandomSentence();
 
@@ -86,18 +81,16 @@ public class SpeechBubbleGenerator : MonoBehaviour
         }
     }
 
-    //void OnTriggerEnter(Collider other)
-    //{
-    //    if (other.CompareTag("Player"))
-    //    {
-    //        GenerateSpeechBubble();
-    //        Destroy(gameObject);
-    //    }
-    //}
-
     public void GenerateSpeechBubble(Vector3 position)
     {
+        // Offset the Z-coordinate to bring the object closer to the camera
+        position.z -= 1f;
+
         GameObject speechBubble = Instantiate(speechBubblePrefab, position, Quaternion.identity);
+
+        // Adjust the size of the speech bubble
+        float scaleMultiplier = Random.Range(10f, 25f); // Adjust the range based on your preference
+        speechBubble.transform.localScale *= scaleMultiplier;
 
         // Attach a script to the instantiated speech bubble to set the sentence
         SpeechBubbleScript speechBubbleScript = speechBubble.GetComponent<SpeechBubbleScript>();
@@ -105,6 +98,14 @@ public class SpeechBubbleGenerator : MonoBehaviour
         {
             string randomSentence = sentences[UnityEngine.Random.Range(0, sentences.Length)];
             speechBubbleScript.SetSentence(randomSentence);
+        }
+
+        // Scale the RectTransform of the text component
+        TextMeshProUGUI textComponent = speechBubble.GetComponentInChildren<TextMeshProUGUI>();
+        if (textComponent != null)
+        {
+            RectTransform rectTransform = textComponent.GetComponent<RectTransform>();
+            rectTransform.sizeDelta *= scaleMultiplier;
         }
     }
 }
