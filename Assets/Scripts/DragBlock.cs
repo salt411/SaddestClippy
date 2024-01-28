@@ -19,7 +19,7 @@ public class DragBlock : MonoBehaviour
     Vector3 storedWorldPos;
     Quaternion worldRotation;
     Quaternion storedWorldRotation;
-    bool notFirstRespawn = false;
+    //bool notFirstRespawn = false;
     Rigidbody rb;
 
     [SerializeField]
@@ -75,29 +75,29 @@ public class DragBlock : MonoBehaviour
         }
     }
 
-    void PassRespawnInfo()
-    {
-        if (notFirstRespawn)
-        {
-            GameObject newInstance = Instantiate(gameObject, storedWorldPos, storedWorldRotation);
-            newInstance.GetComponent<DragBlock>().enabled = true;
-            DragBlock mainScript = newInstance.GetComponent<DragBlock>();
-            mainScript.SetSpawnPosition(storedWorldPos, storedWorldRotation);
-        }
-        else
-        {
-            GameObject newInstance = Instantiate(gameObject, worldPos, worldRotation);
-            newInstance.GetComponent<DragBlock>().enabled = true;
-            DragBlock mainScript = newInstance.GetComponent<DragBlock>();
-            mainScript.SetSpawnPosition(worldPos, worldRotation);
+    //void PassRespawnInfo()
+    //{
+    //    if (notFirstRespawn)
+    //    {
+    //        GameObject newInstance = Instantiate(gameObject, storedWorldPos, storedWorldRotation);
+    //        newInstance.GetComponent<DragBlock>().enabled = true;
+    //        DragBlock mainScript = newInstance.GetComponent<DragBlock>();
+    //        mainScript.SetSpawnPosition(storedWorldPos, storedWorldRotation);
+    //    }
+    //    else
+    //    {
+    //        GameObject newInstance = Instantiate(gameObject, worldPos, worldRotation);
+    //        newInstance.GetComponent<DragBlock>().enabled = true;
+    //        DragBlock mainScript = newInstance.GetComponent<DragBlock>();
+    //        mainScript.SetSpawnPosition(worldPos, worldRotation);
 
-        }
-    }
-    public void SetSpawnPosition(Vector3 spawnPos, Quaternion spawnRotation)
-    {
-        storedWorldPos = spawnPos;
-        storedWorldRotation = spawnRotation;
-        notFirstRespawn = true;
+    //    }
+    //}
+    //public void SetSpawnPosition(Vector3 spawnPos, Quaternion spawnRotation)
+    //{
+    //    storedWorldPos = spawnPos;
+    //    storedWorldRotation = spawnRotation;
+    //    notFirstRespawn = true;
 
-    }
+    //}
 }
