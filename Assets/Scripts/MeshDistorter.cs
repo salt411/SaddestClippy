@@ -89,6 +89,7 @@ public class MeshDistorter : MonoBehaviour
             // Damping for smoother descent
             if (isJumping)
             {
+                Debug.Log("issue in MeshDistorter");
                 float elapsedJumpTime = Time.time - jumpStartTime;
                 float dampingFactor = Mathf.Clamp01(1f - elapsedJumpTime * jumpDamping);
                 rb.velocity *= dampingFactor;

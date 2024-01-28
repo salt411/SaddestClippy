@@ -12,6 +12,9 @@ public class CharController : MonoBehaviour
     private bool isGametime = false;
     private GameObject timer;
     private Timer timerScript;
+    private bool canMoveRight = false;
+    [SerializeField]
+    private float delayAfterCollision = 0.5f;
     bool isStuck = false;
     float movementTolerance = 0.01f;
     void Start()
@@ -37,8 +40,10 @@ public class CharController : MonoBehaviour
         float scaledHeight = transform.localScale.y * originalHeight;
         float scaledRadius = transform.localScale.x * originalRadius;
 
-        Vector3 point1 = center + Vector3.up * (scaledHeight / 2 - scaledRadius);
-        Vector3 point2 = center - Vector3.up * (scaledHeight / 2 - scaledRadius);
+        float heightOffset = scaledHeight / 4;
+
+        Vector3 point1 = center + Vector3.up * (scaledHeight / 2 - scaledRadius - heightOffset);
+        Vector3 point2 = center - Vector3.up * (scaledHeight / 2 - scaledRadius + heightOffset);
 
         float radius = scaledRadius;
         Vector3 direction = Vector3.right;
@@ -48,9 +53,9 @@ public class CharController : MonoBehaviour
 
         if (Physics.CapsuleCast(point1, point2, radius, direction, out hit, maxDistance))
         {
-            if (hit.collider != null && isGametime)
+            if (hit.collider != null && isGametime && !jumping)
             {
-                Jump();
+                StartCoroutine(Jump());
             }
         }
     }
@@ -73,6 +78,8 @@ public class CharController : MonoBehaviour
     float horizontalForceWhileJumping = 1f;
     [SerializeField]
     float jumpForce = 10f;
+    [SerializeField]
+    float reboundForce = 2f;
 
     //void IsStuck()
     //{
@@ -89,10 +96,21 @@ public class CharController : MonoBehaviour
     //    }
     //}
 
+    //private void IfCollision(Collider other)
+    //{
+    //    GetComponent<Rigidbody>().AddForce(Vector3.left * reboundForce);
+    //    StartCoroutine(DelayRightMovement());
+
+    //}
+
+    //IEnumerator DelayRightMovement()
+    //{
+    //    canMoveRight = false;
+    //    yield return new WaitForSeconds(delayAfterCollision);
+    //    canMoveRight = true;
+    //}
     private void MoveRight()
     {
-
-
         if (timerScript.levelWin == true)
         {
             GetComponent<Rigidbody>().AddForce(Vector3.right * 0);
@@ -105,8 +123,7 @@ public class CharController : MonoBehaviour
         {
             GetComponent<Rigidbody>().AddForce(Vector3.right * horizontalForceWhileJumping);
         }
-
-    }
+}
     bool IsGrounded()
     {
         float extraHeightText = 0.5f; // Small extra distance to account for uneven ground
@@ -124,19 +141,28 @@ public class CharController : MonoBehaviour
 
 
     bool jumping = false;
-    async void Jump()
+
+    IEnumerator Jump()
     {
         if (!jumping)
         {
+            jumping = true;
+
             Rigidbody rb = GetComponent<Rigidbody>();
             Vector3 velocity = rb.velocity;
             velocity.y = 0;
+            rb.velocity = velocity; // Make sure to apply the velocity change to the Rigidbody
             jumping = true;
-            GetComponent<Rigidbody>().AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            await Task.Delay(700);
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Debug.Log("He jumps");
+
+            // Wait for 0.7 seconds
+            yield return new WaitForSeconds(0.5f);
+
             jumping = false;
         }
     }
+
 
 
     //public float GetHorizontalDistance(Vector3 compare)
