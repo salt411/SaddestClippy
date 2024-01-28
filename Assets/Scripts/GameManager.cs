@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour
     public GameObject lossScreen;
     public GameObject level;
     public GameObject timer;
-    public GameObject clippy;
     public GameObject mainMenu;
     public GameObject spawnManager;
     private SpawnManager spawnManagerScript;
@@ -52,7 +51,7 @@ public class GameManager : MonoBehaviour
 
     void RestartLevel()
     {
-        Instantiate(clippy, clippySpawnPos, Quaternion.identity);
+        spawnManagerScript.SpawnClippy();
         timerScript.RestartTimer();
         clippyWinScript.hasWon = false;
         level.SetActive(true);
