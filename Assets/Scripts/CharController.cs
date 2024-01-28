@@ -16,6 +16,7 @@ public class CharController : MonoBehaviour
     [SerializeField]
     private float jumpForce = 10f;
     private bool jumping = false;
+    private bool doneHere = false;
 
     void Start()
     {
@@ -31,7 +32,10 @@ public class CharController : MonoBehaviour
 
     void FixedUpdate()
     {
-        MoveInDirection();
+        if (!doneHere)
+        {
+            MoveInDirection();
+        }
     }
 
     void OnCollisionEnter(Collision other)
@@ -52,12 +56,52 @@ public class CharController : MonoBehaviour
         }
     }
 
-    void MoveInDirection()
+    public IEnumerator CheckTheTime()
     {
-        Vector3 forceDirection = movingLeft ? Vector3.left : Vector3.right;
-        float currentForce = IsGrounded() ? force : horizontalForceWhileJumping;
-        GetComponent<Rigidbody>().AddForce(forceDirection * currentForce);
+            doneHere = true;
+            Debug.Log("YYYYYYYYY");
+            Rigidbody rb = GetComponent<Rigidbody>();
+            if (rb != null)
+            {
+                rb.useGravity = false;
+                rb.velocity = Vector3.zero;
+            }
+
+            foreach (Transform child in transform)
+            {
+                Rigidbody childRb = child.GetComponent<Rigidbody>();
+                if (childRb != null)
+                {
+                    childRb.useGravity = false;
+                    childRb.velocity = Vector3.zero;
+                }
+            }
+
+            // Wait for 1.5 seconds
+            yield return new WaitForSeconds(1.5f);
+
+            // Re-enable gravity
+            if (rb != null)
+            {
+                rb.useGravity = true;
+            }
+            foreach (Transform child in transform)
+            {
+                Rigidbody childRb = child.GetComponent<Rigidbody>();
+                if (childRb != null)
+                {
+                    childRb.useGravity = true;
+                }
+            }
+        
     }
+    void MoveInDirection()
+        {
+            GetComponent<Rigidbody>().AddForce(Vector3.right * 0); Vector3 forceDirection = movingLeft ? Vector3.left : Vector3.right;
+            float currentForce = IsGrounded() ? force : horizontalForceWhileJumping;
+            GetComponent<Rigidbody>().AddForce(forceDirection * currentForce);
+        }
+    
 
     bool IsGrounded()
     {
@@ -125,7 +169,7 @@ public class CharController : MonoBehaviour
     }
     async void CheckTime()
     {
-        await Task.Delay(1000);
+        await Task.Delay(1500);
         isGametime = true;
     }
 }

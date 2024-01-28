@@ -350,11 +350,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0b36e9a54af0de346b0cafc735123c8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delayAfterCollision: 0.5
-  force: 40
-  horizontalForceWhileJumping: 15
+  force: 20
+  horizontalForceWhileJumping: 12
   jumpForce: 20
-  reboundForce: 20
 --- !u!54 &783550584931445357
 Rigidbody:
   m_ObjectHideFlags: 0
