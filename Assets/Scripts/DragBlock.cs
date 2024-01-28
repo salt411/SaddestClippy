@@ -10,6 +10,8 @@ public class DragBlock : MonoBehaviour
 {
     private bool dragging = false;
     private float distance;
+    //public GameObject spawnManager;
+    private SpawnManager spawnManagerScript;
     Color originalColor;
     Color mouseDownColor;
     private Vector3 originalTransform;
@@ -25,6 +27,7 @@ public class DragBlock : MonoBehaviour
     void Awake()
     {
         Renderer renderer = GetComponent<Renderer>();
+        spawnManagerScript = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
         originalColor = renderer.material.color;
         mouseDownColor = Color.Lerp(originalColor, Color.white, 0.3f);
         worldPos = transform.position;
@@ -60,7 +63,7 @@ public class DragBlock : MonoBehaviour
         Vector3 lockedPosition = new Vector3(transform.position.x, transform.position.y, 0f);
         transform.position = lockedPosition;
         rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
-        PassRespawnInfo();
+        spawnManagerScript.SpawnBlock();
         Timeout();
     }
     async void Timeout()

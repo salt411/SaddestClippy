@@ -10,10 +10,11 @@ public class GameManager : MonoBehaviour
     public GameObject winBox;
     public GameObject lossScreen;
     public GameObject level;
-    public GameObject obstacleInterface;
     public GameObject timer;
     public GameObject clippy;
     public GameObject mainMenu;
+    public GameObject spawnManager;
+    private SpawnManager spawnManagerScript;
     public Button restartButton;
     public Button startButton;
     private ClippyWin clippyWinScript;
@@ -22,6 +23,7 @@ public class GameManager : MonoBehaviour
     void Awake()
     {
         clippyWinScript = winBox.GetComponent<ClippyWin>();
+        spawnManagerScript = spawnManager.GetComponent<SpawnManager>();
         timerScript = timer.GetComponent<Timer>();
     }
 
@@ -29,7 +31,6 @@ public class GameManager : MonoBehaviour
     {
         lossScreen.SetActive(false);
         level.SetActive(false);
-        obstacleInterface.SetActive(false);
         startButton.onClick.AddListener(StartLevel);
         restartButton.onClick.AddListener(RestartLevel);
 
@@ -43,8 +44,9 @@ public class GameManager : MonoBehaviour
         Instantiate(clippy, clippySpawnPos, Quaternion.identity);
         timerScript.StartTimer();
         mainMenu.SetActive(false);
-        obstacleInterface.SetActive(true);
         level.SetActive(true);
+        spawnManagerScript.SpawnObstacles();
+
 
     }
 
@@ -53,7 +55,6 @@ public class GameManager : MonoBehaviour
         Instantiate(clippy, clippySpawnPos, Quaternion.identity);
         timerScript.RestartTimer();
         clippyWinScript.hasWon = false;
-        obstacleInterface.SetActive(true);
         level.SetActive(true);
         lossScreen.SetActive(false);
     }
@@ -65,7 +66,6 @@ public class GameManager : MonoBehaviour
         {
             lossScreen.SetActive(true);
             level.SetActive(false);
-            obstacleInterface.SetActive(false);
             platformList = GameObject.FindGameObjectsWithTag("Platform");
             foreach (GameObject platform in platformList)
             {
@@ -77,7 +77,6 @@ public class GameManager : MonoBehaviour
         if (timerScript.levelWin)
         {
             level.SetActive(false);
-            obstacleInterface.SetActive(false);
             platformList = GameObject.FindGameObjectsWithTag("Platform");
             foreach (GameObject platform in platformList)
             {
