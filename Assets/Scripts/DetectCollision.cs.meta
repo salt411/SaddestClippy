@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: baf0422b47f81448ebd16f3737c95816
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - speechGen: {fileID: 587698270413195597, guid: 001130ff9b02c441a92312383ca2be4a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
