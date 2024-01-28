@@ -12,20 +12,23 @@ public class Timer : MonoBehaviour
     private List<float> maxTimePerLevel;
     private Coroutine countdownCoroutine;
     private float maxTimeThisLevel;
+    public GameObject gameManager;
+    private GameManager gameManagerScript;
 
     void Start()
     {
-        maxTimePerLevel = new List<int> { 10f, 20.0f, 40.0f, 30.0f };
+        gameManagerScript = gameManager.GetComponent < GameManager > ();
+        maxTimePerLevel = new List<float> { 10f, 20.0f, 40.0f, 30.0f };
     }
 
-    public float GetLevelTime(levelNum)
+    public float GetLevelTime(int levelNum)
     {
         return maxTimePerLevel[levelNum-1];
     }
 
-    public void StartTimer(levelNum)
+    public void StartTimer(int levelNum)
     {
-        masTimeThisLevel = maxTimePerLevel[levelNum - 1];
+        maxTimeThisLevel = maxTimePerLevel[levelNum - 1];
         countdownCoroutine = StartCoroutine(Countdown());
     }
 
@@ -35,20 +38,26 @@ public class Timer : MonoBehaviour
         {
             yield return new WaitForSeconds(1f); // Wait for 1 second
             maxTimeThisLevel -= 1;
-            GetComponent<TextMeshProUGUI>().text = maxTime.ToString();
+            GetComponent<TextMeshProUGUI>().text = maxTimeThisLevel.ToString();
         }
 
         levelWin = true;
+        
     }
 
-    public void RestartTimer()
+    public void StopTimer()
     {
         if (countdownCoroutine != null)
         {
             StopCoroutine(countdownCoroutine);
         }// Stop the ongoing countdown
-        maxTimeThisLevel = 10f;
         levelWin = false;
-        StartCoroutine(Countdown()); // Restart the countdown
     }
+
+    //public void RestartTimer(int levelNum)
+    //{
+    //    maxTimeThisLevel = maxTimePerLevel[levelNum - 1];
+    //    StartCoroutine(Countdown()); // Restart the countdown
+    //}
+
 }
