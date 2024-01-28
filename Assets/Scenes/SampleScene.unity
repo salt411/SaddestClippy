@@ -2951,14 +2951,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f8ac4c5aa9b67463a8c0e7fc52739dfa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpPrefab: {fileID: 3401185102854271749, guid: 7453936345ff448cc936e5caf896616a, type: 3}
+  keyboardKeyPrefab: {fileID: 3401185102854271749, guid: 7453936345ff448cc936e5caf896616a, type: 3}
   speechBubblePrefab: {fileID: 0}
   numberOfPowerUps: 5
-  sentences:
-  - Collect me!
-  - Power up!
-  - Great job!
-  - Boost time!
+  spawnHeight: 20
+  minRotationSpeed: 30
+  maxRotationSpeed: 180
+  minMomentum: 5
+  maxMomentum: 10
 --- !u!4 &714123820
 Transform:
   m_ObjectHideFlags: 0
@@ -6510,6 +6510,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2390095db4f1537438ca38eddffae758, type: 3}
+--- !u!1001 &8688671449461074128
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.5040536
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.4472055
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.1749965
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2640446795078205620, guid: 4081303b838334a748a7da8e2173643f, type: 3}
+      propertyPath: m_Name
+      value: Clip and Rug
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4081303b838334a748a7da8e2173643f, type: 3}
 --- !u!1001 &9036813629145680029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17760,3 +17817,4 @@ SceneRoots:
   - {fileID: 1766783674}
   - {fileID: 674890937}
   - {fileID: 714123820}
+  - {fileID: 8688671449461074128}
