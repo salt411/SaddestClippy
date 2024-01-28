@@ -2813,7 +2813,7 @@ MonoBehaviour:
   block: {fileID: 5692068913862315377, guid: fb5f3e0cb4c064db5bae45e87e518260, type: 3}
   pinwheel: {fileID: 3574509629756445140, guid: 185099f59c710463dab7cccc83f59739, type: 3}
   bomb: {fileID: 7220137897556907434, guid: da2c87f0882fd4c42bde1335bbbdadf9, type: 3}
-  clippy: {fileID: 0}
+  clippy: {fileID: 2640446795078205620, guid: 4081303b838334a748a7da8e2173643f, type: 3}
 --- !u!4 &674890937
 Transform:
   m_ObjectHideFlags: 0
