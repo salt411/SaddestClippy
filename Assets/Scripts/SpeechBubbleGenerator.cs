@@ -107,5 +107,6 @@ public class SpeechBubbleGenerator : MonoBehaviour
             RectTransform rectTransform = textComponent.GetComponent<RectTransform>();
             rectTransform.sizeDelta *= scaleMultiplier;
         }
+        Destroy(speechBubble, 10f);
     }
 }
