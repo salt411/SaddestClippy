@@ -1352,11 +1352,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1 &226765074 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2640446795078205620, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-  m_PrefabInstance: {fileID: 8688671449461074128}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &269323754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2818,7 +2813,7 @@ MonoBehaviour:
   block: {fileID: 5692068913862315377, guid: fb5f3e0cb4c064db5bae45e87e518260, type: 3}
   pinwheel: {fileID: 3574509629756445140, guid: 185099f59c710463dab7cccc83f59739, type: 3}
   bomb: {fileID: 7220137897556907434, guid: da2c87f0882fd4c42bde1335bbbdadf9, type: 3}
-  clippy: {fileID: 226765074}
+  clippy: {fileID: 0}
 --- !u!4 &674890937
 Transform:
   m_ObjectHideFlags: 0
@@ -3266,11 +3261,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &877774925 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2683683480920083271, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-  m_PrefabInstance: {fileID: 8688671449461074128}
-  m_PrefabAsset: {fileID: 0}
 --- !u!43 &920935120
 Mesh:
   m_ObjectHideFlags: 0
@@ -5371,11 +5361,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1843916324}
   m_CullTransparentMesh: 1
---- !u!4 &1884435496 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7871648050480154012, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-  m_PrefabInstance: {fileID: 8688671449461074128}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1900034539
 GameObject:
   m_ObjectHideFlags: 0
@@ -6526,75 +6511,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2390095db4f1537438ca38eddffae758, type: 3}
---- !u!1001 &8688671449461074128
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -7300341101191075734, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: leftEye
-      value: 
-      objectReference: {fileID: 1884435496}
-    - target: {fileID: -7300341101191075734, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: rightEye
-      value: 
-      objectReference: {fileID: 877774925}
-    - target: {fileID: -7300341101191075734, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: wobbleAmplitude
-      value: 0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -7.5040536
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3.4472055
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.1749965
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1035695838558149843, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2640446795078205620, guid: 4081303b838334a748a7da8e2173643f, type: 3}
-      propertyPath: m_Name
-      value: Clip and Rug
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4081303b838334a748a7da8e2173643f, type: 3}
 --- !u!1001 &9036813629145680029
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17845,4 +17761,3 @@ SceneRoots:
   - {fileID: 1766783674}
   - {fileID: 674890937}
   - {fileID: 714123820}
-  - {fileID: 8688671449461074128}
