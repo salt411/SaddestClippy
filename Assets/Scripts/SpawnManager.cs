@@ -4,10 +4,33 @@ using UnityEngine;
 
 public class SpawnManager : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject block;
+    public GameObject pinwheel;
+    public GameObject bomb;
+
     void Start()
     {
-        Debug.Log("Hello world.");
+        
+    }
+
+    public void SpawnObstacles()
+    {
+        Instantiate(block);
+        Instantiate(pinwheel);
+        Instantiate(bomb);
+    }
+
+    public void SpawnBlock()
+    {
+        Instantiate(block);
+    }
+    public void SpawnPinwheel()
+    {
+        Instantiate(pinwheel);
+    }
+    public void SpawnBomb()
+    {
+        Instantiate(bomb);
     }
 
     // Update is called once per frame
