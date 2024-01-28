@@ -289,6 +289,7 @@ GameObject:
   - component: {fileID: 7262538174250159572}
   - component: {fileID: 783550584931445357}
   - component: {fileID: 25784222371165594}
+  - component: {fileID: 5282337844304313545}
   m_Layer: 0
   m_Name: Clip and Rug
   m_TagString: Player
@@ -401,6 +402,22 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.9728975, y: 2.5902703, z: 2.884532}
   m_Center: {x: 0.026431903, y: 0.4457195, z: 0.019894987}
+--- !u!114 &5282337844304313545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2640446795078205620}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe04e82611d454c20b4c6df5f81fc930, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftEye: {fileID: 0}
+  rightEye: {fileID: 0}
+  wobbleFrequency: 2
+  wobbleAmplitude: 0.02
 --- !u!1 &4197176383039773565
 GameObject:
   m_ObjectHideFlags: 0
