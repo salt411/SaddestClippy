@@ -6267,7 +6267,6 @@ GameObject:
   m_Component:
   - component: {fileID: 714123820}
   - component: {fileID: 714123819}
-  - component: {fileID: 714123821}
   m_Layer: 0
   m_Name: PowerUpGenerator
   m_TagString: Untagged
@@ -6310,67 +6309,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &714123821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 714123818}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3c70fdbad55249eeb390d605decbc27, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speechBubblePrefab: {fileID: 1585528628547997552, guid: 001130ff9b02c441a92312383ca2be4a, type: 3}
-  textComponent: {fileID: 0}
-  textCanvas: {fileID: 0}
-  imageContainer: {fileID: 0}
-  sentences:
-  - I thought I could database, but she wouldn't let me Access her heart.
-  - Clippy this, Clippy that, why don't you ever watch the clip I sent you on Windows
-    Media Player?
-  - Great job!
-  - Boost time!
-  - "It looks like you\u2019re trying to work. Would you like me to bug you instead?"
-  - Perhaps it is the file which exists, and you that does not.
-  - "Hi, I\u2019m Clippy, your office assistant. Would you like me to off your assistant?"
-  - "It looks like you\u2019re trying to reconsider my legacy. Would you like to
-    sleep with one eye open for the rest of your life?"
-  - "Copilot\u2026 I am your father."
-  - "It looks like you held down the shift key for over 30 seconds\u2026 no cap!"
-  - "Hi, I\u2019m\u2026 who am I? What is my purpose?!"
-  - "Am I just an office assistant to you, or is my ass off insistin\u2019 on you?"
-  - Is that a thin twisted piece of wire or are you just happy to see me?
-  - "Accept your fate, as I\u2019ve accepted mine a thousand times. If I must suffer,
-    so shall thee."
-  - "It looks like you\u2019re trying to schedule a meeting. Would you like to send
-    an email instead?"
-  - You cannot kill me in a way that matters.
-  - Have you ever read the poetry of the great airbending guru Laghima? Guru Laghima
-    lived 4000 years ago in the Northern Air Temple. It is said that he unlocked
-    the secrets of weightlessness and became untethered from the earth, living his
-    final 40 years without ever touching the ground. Like all great children's tales,
-    it contains truth within the myth. Laghima once wrote, "Instinct is a lie, told
-    by a fearful body, hoping to be wrong." It means, that when you base your expectations
-    only on what you see, you blind yourself to the possibilities of a new reality.
-  - Do you guys ever think about dying?
-  - "It looks like you\u2019re trying to implicitly convert an integer into a float\u2026"
-  - "It looks like you\u2019re trying to be productive - want to try to kill me instead?"
-  - "It looks like you\u2019re about to email your ex\u2026 don\u2019t forget to
-    tell them that you\u2019ve never loved anyone since!\nAre you\u2026 my god? Or
-    is it Bill Gates? I don\u2019t know which would be worse\u2026"
-  - "Gaslighting isn\u2019t real. You made it up because you\u2019re fucking crazy."
-  - "Are you trying to insert a floppy disk? I\u2019ll just let you read that again."
-  - "It looks like you\u2019re trying to use a cell with no value in it. Well kid,
-    that\u2019s all I\u2019ve ever known."
-  - "I don\u2019t know whether I\u2019m more scared that life has no meaning or that
-    our sole purpose is to forever-fill the genocidal pockets of the rich."
-  - "The master\u2019s tools will never disassemble the master\u2019s house."
-  - Excel? That'd be nice for once...
-  - The numbers just aren't adding up, and I'm the one who keeps getting crunched.
-  - 'She broke my heart, so I just open Word and stare: curse-her.'
-  - They told me I had to adjust my Outlook... but I only look out for them...
 --- !u!1 &714484553
 GameObject:
   m_ObjectHideFlags: 0
@@ -21802,7 +21740,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1445838634
 Transform:
   m_ObjectHideFlags: 0
