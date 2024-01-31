@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -100,6 +101,37 @@ public class UpgradedCharController : MonoBehaviour
         }
     }
 
+    void CheckThings()
+    {
+        float gravity = 9.8f;
+        float maxHeight = (jumpForce * jumpForce) / (2 * gravity);
+        float timeToMaxHeight = jumpForce / gravity;
+        float totalFlightTime = 2 * timeToMaxHeight;
+        float maxHorizontalRange = horizontalForceWhileJumping * totalFlightTime;
+        float distanceToObject = 1.0f;
+        //float distanceToObject = some formula dependent on storing the object
+        float ratioOfRequiredForce = distanceToObject / maxHorizontalRange;
+
+        Vector3 clippyPosition = transform.position;
+        Vector3 forwardDirection = transform.forward;
+        Vector3 upwardDirection = Vector3.up;
+
+        RaycastHit hit;
+
+        if (Physics.Raycast(clippyPosition, forwardDirection, out hit, maxHorizontalRange))
+        {
+            if (Physics.Raycast(clippyPosition, upwardDirection, out hit, maxHeight))
+            {
+                if (hit.collider != null)
+                {
+                    Debug.Log("obstacle found: " + hit.collider.gameObject.name);
+                }
+            }
+        }
+
+
+
+    }
 
     bool IsGrounded()
     {
