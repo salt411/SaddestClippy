@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class DetectCollision : MonoBehaviour
 {
-    private SpeechBubbleGenerator speechGen;
+    private SpawnManager spawnMan;
 
     private void Awake()
     {
-        speechGen = GameObject.Find("PowerUpGenerator").GetComponent<SpeechBubbleGenerator>();
+        spawnMan = GameObject.Find("SpawnManager").GetComponent<SpawnManager>();
     }
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
             Destroy(gameObject);
-            speechGen.GenerateSpeechBubble(other.transform.position);
+            spawnMan.SpawnSpeechBubble(other.transform.position);
         }
     }
 }
