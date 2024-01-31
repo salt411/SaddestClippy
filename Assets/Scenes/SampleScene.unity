@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641287, b: 0.5748173, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465788, g: 0.49641263, b: 0.5748172, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5930,6 +5930,7 @@ GameObject:
   m_Component:
   - component: {fileID: 674890937}
   - component: {fileID: 674890936}
+  - component: {fileID: 674890938}
   m_Layer: 0
   m_Name: SpawnManager
   m_TagString: Untagged
@@ -5954,6 +5955,7 @@ MonoBehaviour:
   bomb: {fileID: 6229431181555049701, guid: 7b46d2a04ccc8424f9a81379d6a01356, type: 3}
   clippy: {fileID: 2640446795078205620, guid: 4081303b838334a748a7da8e2173643f, type: 3}
   shortyclip: {fileID: 2640446795078205620, guid: a40c2057b0661403085a84c840e8864f, type: 3}
+  spBub: {fileID: 2106737401641957464, guid: 30666c205af444906af0e07e36706c0d, type: 3}
   levelSpawnInfos:
   - spawnPosition: {x: -9, y: 1.34, z: -1.17}
     spawnScale: {x: 0.8, y: 0.8, z: 0.8}
@@ -5976,6 +5978,26 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &674890938
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 674890935}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8ac4c5aa9b67463a8c0e7fc52739dfa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keyboardKeyPrefab: {fileID: 3401185102854271749, guid: 7453936345ff448cc936e5caf896616a, type: 3}
+  maxPowerUpsPerSpawn: 1
+  spawnIntervalMin: 0
+  spawnIntervalMax: 5
+  minRotationSpeed: 30
+  maxRotationSpeed: 300
+  minMomentum: 1
+  maxMomentum: 10
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0

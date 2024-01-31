@@ -3,7 +3,8 @@ guid: f8ac4c5aa9b67463a8c0e7fc52739dfa
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - keyboardKeyPrefab: {fileID: 3401185102854271749, guid: 7453936345ff448cc936e5caf896616a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
