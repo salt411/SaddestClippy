@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         startButton.onClick.AddListener(StartGame);
         restartButton.onClick.AddListener(RestartLevel);
 
-        currLevel = 1;
+        currLevel = 2;
 
         lossScreen.SetActive(false);
         levelObjects[currLevel - 1].SetActive(false);
